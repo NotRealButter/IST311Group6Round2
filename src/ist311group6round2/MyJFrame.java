@@ -8,11 +8,7 @@ package ist311group6round2;
  *
  * @author Jeff
  */
-public class app {
-  public static void main(String args[])
-  {
-    MyJFrame mjf = new MyJFrame();
-  }
+class MyJFrame 
+{
+    
 }
-
-

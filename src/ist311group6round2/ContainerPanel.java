@@ -15,9 +15,12 @@ public class ContainerPanel extends MyJPanel implements ActionListener
     OptionsPanel options;
     SplashPanel splashScreen;    
     Timer splashTimer;
+    int value = 0;
+    GameFrame frame;
     
     ContainerPanel()
     {
+    frame = this.frame;
     game = new GamePanel();
     options = new OptionsPanel();
     splashScreen = new SplashPanel();
@@ -26,12 +29,16 @@ public class ContainerPanel extends MyJPanel implements ActionListener
     game.setBackground(Color.red);
     add(splashScreen);
     
-    splashTimer = new Timer(100,this);
+    splashTimer = new Timer(1,this);
     splashTimer.start();
+    
+    
     }
 
-    public void swapPanel()
+    public void swapPanel(MyJPanel p1, MyJPanel p2)
     {
+        this.remove(p1);
+        this.add(p2);
         
     }
     
@@ -41,10 +48,12 @@ public class ContainerPanel extends MyJPanel implements ActionListener
         Object select = e.getSource();
         if (select == splashTimer)
         {
-            if(splashTimer.equals(50))
+            value++;
+            splashScreen.test.setText(" " +value);
+            
+            if (value == 1000)
             {
-                remove(splashScreen);
-                add(game);
+                swapPanel(this,game);
             }
         }
     }
