@@ -6,6 +6,6 @@ public class MyJPanel extends JPanel
 {
     MyJPanel()
     {
-        super();
+
     }
 }
