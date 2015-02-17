@@ -15,6 +15,5 @@ OptionsPanel(){
     Easy = new JButton();
     Medium = new JButton();
     Hard = new JButton();
-   this.add(Easy);
 }
 }
