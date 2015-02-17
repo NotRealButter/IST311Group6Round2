@@ -11,7 +11,7 @@ package ist311group6round2;
 public class app {
   public static void main(String args[])
   {
-    MyJFrame mjf = new MyJFrame();
+    GameFrame game = new GameFrame();
   }
 }
 

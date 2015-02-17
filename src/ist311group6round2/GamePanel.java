@@ -11,6 +11,6 @@ public class GamePanel extends MyJPanel
 
     GamePanel()
     {
-        setPreferredSize(new Dimension(1000,720));
+
     }
 }
