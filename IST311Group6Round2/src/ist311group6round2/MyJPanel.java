@@ -4,5 +4,8 @@ import javax.swing.*;
 
 public class MyJPanel extends JPanel
 {
-
+    MyJPanel()
+    {
+        super();
+    }
 }
