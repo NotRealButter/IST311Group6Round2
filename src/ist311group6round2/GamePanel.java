@@ -27,19 +27,19 @@ public class GamePanel extends MyJPanel
     
     public void gameLogic()
     {
-        if (player.x > enemy.enX)
+        if (player.x < enemy.enX)
         {
             enemy.enDX = -enemy.enMoveSpeed;
         }
-        if (player.x < enemy.enX)
+        if (player.x > enemy.enX)
         {
             enemy.enDX = enemy.enMoveSpeed;
         }
-        if (player.y > enemy.enY)
+        if (player.y < enemy.enY)
         {
             enemy.enDY = -enemy.enMoveSpeed;
         }
-        if (player.y < enemy.enY)
+        if (player.y > enemy.enY)
         {
             enemy.enDY = enemy.enMoveSpeed;
         }

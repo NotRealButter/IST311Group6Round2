@@ -6,7 +6,7 @@ import java.awt.*;
 public class GameFrame extends JFrame
 {
 
-    int frameWidth = 1920  , frameHeight = 1080;
+    int frameWidth = 1280  , frameHeight = 720;
     Dimension dim;
     ContainerPanel Overall;
     
@@ -14,7 +14,7 @@ public class GameFrame extends JFrame
     {
             super ("GAME");
             
-            dim = new Dimension(1920,1080);
+            dim = new Dimension(frameWidth,frameHeight);
             Overall = new ContainerPanel();
             add(Overall);
             setDefaultCloseOperation(EXIT_ON_CLOSE);

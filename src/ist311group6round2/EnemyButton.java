@@ -8,9 +8,10 @@ public class EnemyButton extends JButton
     
     EnemyButton()
     {
-        enX = 1700;
-        enY = 900;
-        enSize = 100;
+        enX = 1100;
+        enY = 620;
+        enSize = 60;
+        enMoveSpeed = 1;
     }
 
     public void enemyMove()
