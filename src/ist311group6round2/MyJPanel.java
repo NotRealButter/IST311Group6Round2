@@ -7,6 +7,7 @@ public class MyJPanel extends JPanel
 {
     MyJPanel()
     {
+        super();
         setPreferredSize(new Dimension(1920,1080));
     }
 }

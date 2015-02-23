@@ -1,26 +1,31 @@
 package ist311group6round2;
-import java.awt.event.ActionEvent;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-/**
- *
- * @author Stephen
- */
-public class OptionsPanel extends JPanel {
+public class OptionsPanel extends MyJPanel
+{
     
 int difficulty;
-JButton easy, medium, hard;
+JButton easy, medium, hard,start;
 
 OptionsPanel(){
-    easy = new JButton();
-    medium = new JButton();
-    hard = new JButton();
+    setLayout(null);
+    setBackground(Color.black);
+    
+    easy = new JButton("EASY");
+    easy.setBounds(100, 200, 100, 100);
+    medium = new JButton("MEDIUM");
+    medium.setBounds(100, 400, 100, 100);
+    hard = new JButton("HARD");
+    hard.setBounds(100, 600, 100, 100);
+    start = new JButton ("Start the Game");
+    start.setBounds(960, 540, 400, 200);
     
     add(easy);
     add(medium);
     add(hard);
+    add(start);
 }
 
 public class ButtonListener implements ActionListener
