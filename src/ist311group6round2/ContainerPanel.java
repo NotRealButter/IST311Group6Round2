@@ -54,4 +54,59 @@ public class ContainerPanel extends MyJPanel implements ActionListener
             }
         }
     }
+    
+public class WhichKey implements KeyListener
+{
+
+        @Override
+        public void keyTyped(KeyEvent e) 
+        {
+       
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) 
+        {
+                int keyCode = e.getKeyCode();
+        switch(keyCode)
+        {
+            case KeyEvent.VK_UP:
+                game.player.dy = -game.player.movespeed;
+                break;
+            case KeyEvent.VK_DOWN:
+                 game.player.dy = game.player.movespeed;
+                break;
+            case KeyEvent.VK_LEFT:
+                 game.player.dx = -game.player.movespeed;
+                break;
+            case KeyEvent.VK_RIGHT:
+                 game.player.dx = game.player.movespeed;
+                break;
+            case KeyEvent.VK_SPACE:
+                break;
+            
+        }}
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        switch(keyCode)
+        {
+            case KeyEvent.VK_UP:
+                game.player.dy = 0;
+                break;
+            case KeyEvent.VK_DOWN:
+                 game.player.dy = 0;
+                break;
+            case KeyEvent.VK_LEFT:
+                 game.player.dx = 0;
+                break;
+            case KeyEvent.VK_RIGHT:
+                 game.player.dx = 0;
+                break;
+
+            
+        }        }
+    
+}
 }
