@@ -31,8 +31,18 @@ public class GamePanel extends MyJPanel implements ActionListener
         Graphics2D g2d = (Graphics2D)g; 
         g2d.setColor(Color.red);
         g2d.draw(enemy.getRectangle());
-        g2d.draw(player.getRectangle());
-        System.out.println("bitchesandhoes" + player.getRectangle().getX() + player.getRectangle().getY());
+//        g2d.draw(player.getRectangle());
+        switch (player.directionFacing)
+        {
+            case 1: g.drawImage(player.faceUp, player.getRectangle().x, player.getRectangle().y, this);
+                    break;
+            case 2: g.drawImage(player.faceRight, player.getRectangle().x, player.getRectangle().y, this);
+                    break;
+            case 3: g.drawImage(player.faceDown,player.getRectangle().x, player.getRectangle().y, this);
+                    break;
+            case 4: g.drawImage(player.faceLeft,player.getRectangle().x, player.getRectangle().y, this);
+                    break;
+        }
     }
     
     public void gameLogic()

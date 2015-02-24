@@ -5,8 +5,12 @@ import javax.swing.*;
 
 public class Player extends Rectangle
 {
+    Image faceRight = Toolkit.getDefaultToolkit().getImage("images/faceRight.png");
+    Image faceUp = Toolkit.getDefaultToolkit().getImage("images/faceUp.png");
+    Image faceDown = Toolkit.getDefaultToolkit().getImage("images/faceDown.png");
+    Image faceLeft = Toolkit.getDefaultToolkit().getImage("images/faceLeft.png");
     int movespeed = 3;
-    int directionFacing = 3;
+    int directionFacing = 2;
     int dy,dx,x,y,size;
     private Rectangle playerShape;
     

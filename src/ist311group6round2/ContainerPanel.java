@@ -109,15 +109,19 @@ public class WhichKey implements KeyListener
             {
                 case KeyEvent.VK_UP:
                     game.player.dy = -game.player.movespeed;
+                    game.player.directionFacing = 1;
                     break;
                 case KeyEvent.VK_DOWN:
-                     game.player.dy = game.player.movespeed;
+                    game.player.dy = game.player.movespeed;
+                    game.player.directionFacing = 3;
                     break;
                 case KeyEvent.VK_LEFT:
-                     game.player.dx = -game.player.movespeed;
+                    game.player.dx = -game.player.movespeed;
+                    game.player.directionFacing = 4;
                     break;
                 case KeyEvent.VK_RIGHT:
-                     game.player.dx = game.player.movespeed;
+                    game.player.dx = game.player.movespeed;
+                    game.player.directionFacing = 2;
                     break;
                 case KeyEvent.VK_SPACE:
                     break;
