@@ -9,6 +9,8 @@ public class OptionsPanel extends MyJPanel
 int difficulty;
 JButton easy, medium, hard,start;
 
+
+
 OptionsPanel(){
     setLayout(null);
     setBackground(Color.black);
@@ -21,11 +23,14 @@ OptionsPanel(){
     hard.setBounds(100, 600, 100, 100);
     start = new JButton ("Start the Game");
     start.setBounds(600, 400, 400, 200);
+   
     
     add(easy);
     add(medium);
     add(hard);
     add(start);
+
+    
 }
 
 public class ButtonListener implements ActionListener

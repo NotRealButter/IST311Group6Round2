@@ -9,6 +9,9 @@ public class GamePanel extends MyJPanel implements ActionListener
     Player player;
     Enemy enemy;
     Timer gameLoop;
+    JLabel scoreLabel;
+    JLabel levelLabel;
+    JLabel timerLabel;
     GamePanel()
     {
         
@@ -22,6 +25,15 @@ public class GamePanel extends MyJPanel implements ActionListener
         enemy = new Enemy();
         enemy.setBounds(enemy.enX,enemy.enY,enemy.enSize,enemy.enSize);
         gameLoop = new Timer(10, this);
+        scoreLabel = new JLabel("score: ");
+        add(scoreLabel);
+        scoreLabel.setBounds(100, 20, 50, 50);
+        levelLabel = new JLabel("level: ");
+        add(levelLabel);
+        levelLabel.setBounds(500, 20, 50, 50);
+        timerLabel = new JLabel("timer: ");
+        add(timerLabel);
+        timerLabel.setBounds(900, 20, 50, 50);
 
     }
     
