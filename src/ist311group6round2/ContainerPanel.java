@@ -14,7 +14,7 @@ public class ContainerPanel extends MyJPanel implements ActionListener
     GamePanel game;
     OptionsPanel options;
     SplashPanel splashScreen;    
-    Timer splashTimer, gameTime;
+    Timer splashTimer;
     int value = 0;
     WhichKey whichKey;
     
@@ -22,8 +22,9 @@ public class ContainerPanel extends MyJPanel implements ActionListener
     {
         game = new GamePanel();
         options = new OptionsPanel();
-        splashScreen = new SplashPanel();        
-        setFocusable(true);
+        splashScreen = new SplashPanel();  
+                setFocusable(true);
+
         whichKey = new WhichKey();
 
         addKeyListener(whichKey);
@@ -41,8 +42,9 @@ public class ContainerPanel extends MyJPanel implements ActionListener
         splashTimer = new Timer(1,this);
         splashTimer.start();
 
-        gameTime = new Timer(10, this);
+ 
     }
+
 
     public void swapPanel(MyJPanel p1, MyJPanel p2)
     {
@@ -66,12 +68,6 @@ public class ContainerPanel extends MyJPanel implements ActionListener
             }
            
         }
-        if(select == gameTime)
-        {
-            game.player.playerMove();
-            game.gameLogic();
-            game.enemy.enemyMove();
-        }
         if (select == options.easy)
         {
             options.difficulty = 1;
@@ -92,7 +88,7 @@ public class ContainerPanel extends MyJPanel implements ActionListener
         if (select == options.start)
         {
             this.swapPanel(options,game);
-            gameTime.start();
+            game.gameLoop.start();
         }
     }
     

@@ -4,25 +4,35 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class GamePanel extends MyJPanel
+public class GamePanel extends MyJPanel implements ActionListener
 {
-    PlayerButton player;
-    EnemyButton enemy;
-
+    Player player;
+    Enemy enemy;
+    Timer gameLoop;
     GamePanel()
     {
         
         this.setLayout(null);
         this.setVisible(true);
         this.setBackground(Color.blue);
-        player = new PlayerButton();
+        player = new Player();
         player.setBounds(player.x, player.y, player.size, player.size);
-        add(player);
         
-        enemy = new EnemyButton();
-
+        
+        enemy = new Enemy();
         enemy.setBounds(enemy.enX,enemy.enY,enemy.enSize,enemy.enSize);
-        add(enemy);
+        gameLoop = new Timer(10, this);
+
+    }
+    
+        public void paintComponent (Graphics g)
+    {
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D)g; 
+        g2d.setColor(Color.red);
+        g2d.draw(enemy.getRectangle());
+        g2d.draw(player.getRectangle());
+        System.out.println("bitchesandhoes" + player.getRectangle().getX() + player.getRectangle().getY());
     }
     
     public void gameLogic()
@@ -42,6 +52,24 @@ public class GamePanel extends MyJPanel
         if (player.y > enemy.enY)
         {
             enemy.enDY = enemy.enMoveSpeed;
+        }
+        if(enemy.getRectangle().intersects(player.getRectangle()))
+        {
+            enemy.resetRectangle();
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        Object select = e.getSource();
+        if (select == gameLoop)
+        {
+            player.playerMove();
+            gameLogic();
+            enemy.enemyMove();
+            revalidate();
+            repaint();
         }
     }
 }
