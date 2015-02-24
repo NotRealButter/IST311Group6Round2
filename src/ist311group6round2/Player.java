@@ -9,7 +9,7 @@ public class Player extends Rectangle
     Image faceUp = Toolkit.getDefaultToolkit().getImage("images/faceUp.png");
     Image faceDown = Toolkit.getDefaultToolkit().getImage("images/faceDown.png");
     Image faceLeft = Toolkit.getDefaultToolkit().getImage("images/faceLeft.png");
-    int movespeed = 3;
+    int movespeed = 5;
     int directionFacing = 2;
     int dy,dx,x,y,size;
     private Rectangle playerShape;

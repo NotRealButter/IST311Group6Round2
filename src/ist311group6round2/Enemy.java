@@ -5,7 +5,9 @@ import javax.swing.*;
 
 public class Enemy extends Rectangle
 {
-    int enX,enY,enSize,enDX,enDY,enMoveSpeed;
+    Image ghostLeft = Toolkit.getDefaultToolkit().getImage("images/ghostLeft.png");
+    Image ghostRight = Toolkit.getDefaultToolkit().getImage("images/ghostRight.png");
+    int enX,enY,enSize,enDX,enDY,enMoveSpeed,enDirFac;
     private Rectangle enShape;
     
     Enemy()
@@ -15,6 +17,7 @@ public class Enemy extends Rectangle
         enSize = 60;
         enMoveSpeed = 1;
         enShape = new Rectangle(enX,enY,enSize,enSize);
+        enDirFac = 2;
         
     }
 

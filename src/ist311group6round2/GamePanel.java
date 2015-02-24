@@ -43,6 +43,13 @@ public class GamePanel extends MyJPanel implements ActionListener
             case 4: g.drawImage(player.faceLeft,player.getRectangle().x, player.getRectangle().y, this);
                     break;
         }
+        switch (enemy.enDirFac)
+        {
+            case 2:    g.drawImage(enemy.ghostLeft,enemy.getRectangle().x, enemy.getRectangle().y, this);
+                        break;
+            case 1:     g.drawImage(enemy.ghostRight,enemy.getRectangle().x, enemy.getRectangle().y, this);
+                        break;
+        }
     }
     
     public void gameLogic()
@@ -50,10 +57,12 @@ public class GamePanel extends MyJPanel implements ActionListener
         if (player.x < enemy.enX)
         {
             enemy.enDX = -enemy.enMoveSpeed;
+            enemy.enDirFac = 2;
         }
         if (player.x > enemy.enX)
         {
             enemy.enDX = enemy.enMoveSpeed;
+            enemy.enDirFac = 1;
         }
         if (player.y < enemy.enY)
         {
