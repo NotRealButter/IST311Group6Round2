@@ -7,7 +7,7 @@ public class SplashPanel extends MyJPanel
 {
     JLabel test;
     ImageIcon splash = new ImageIcon ("images/splash.jpeg");
-        
+    
     SplashPanel()
     {
         test = new JLabel(splash);
