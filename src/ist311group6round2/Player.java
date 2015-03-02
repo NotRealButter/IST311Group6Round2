@@ -31,7 +31,7 @@ public class Player extends Rectangle
         playerShape.setBounds(x,y,size,size);
     }
     
-    public Rectangle getRectangle()
+    public Rectangle getPlayerShape()
     {
         playerShape.x = x;
         playerShape.y = y;

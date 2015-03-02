@@ -23,10 +23,10 @@ public class ContainerPanel extends MyJPanel implements ActionListener
         game = new GamePanel();
         options = new OptionsPanel();
         splashScreen = new SplashPanel();  
-                setFocusable(true);
+        setFocusable(true);
 
+        
         whichKey = new WhichKey();
-
         addKeyListener(whichKey);
         game.setBackground(Color.blue);
         
@@ -34,6 +34,8 @@ public class ContainerPanel extends MyJPanel implements ActionListener
         options.medium.addActionListener(this);
         options.hard.addActionListener(this);
         options.start.addActionListener(this);
+        
+        game.levelLabel.setText("level: " + options.difficulty);
 
 
         splashScreen.setBackground(Color.black);
@@ -72,6 +74,7 @@ public class ContainerPanel extends MyJPanel implements ActionListener
         {
             options.difficulty = 1;
             game.enemy.enMoveSpeed = options.difficulty;
+
         }
         if (select == options.medium)
         {
@@ -88,6 +91,7 @@ public class ContainerPanel extends MyJPanel implements ActionListener
         if (select == options.start)
         {
             this.swapPanel(options,game);
+            game.levelLabel.setText("Level: " + options.difficulty);
             game.gameLoop.start();
         }
     }

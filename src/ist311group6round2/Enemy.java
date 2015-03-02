@@ -21,9 +21,8 @@ public class Enemy extends Rectangle
         
     }
 
-        public Rectangle getRectangle()
+        public Rectangle getEnShape()
     {
-        enemyMove();
         enShape.x = enX;
         enShape.y = enY;
         enShape.setBounds(enX,enY,enSize,enSize);

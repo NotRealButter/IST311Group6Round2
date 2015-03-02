@@ -15,14 +15,16 @@ OptionsPanel(){
     setLayout(null);
     setBackground(Color.black);
     
+    difficulty = 1;
+    
     easy = new JButton("EASY");
     easy.setBounds(100, 100, 100, 100);
     medium = new JButton("MEDIUM");
-    medium.setBounds(100, 400, 100, 100);
+    medium.setBounds(100, 300, 100, 100);
     hard = new JButton("HARD");
-    hard.setBounds(100, 600, 100, 100);
+    hard.setBounds(100, 500, 100, 100);
     start = new JButton ("Start the Game");
-    start.setBounds(600, 400, 400, 200);
+    start.setBounds(600, 300, 400, 200);
    
     
     add(easy);
