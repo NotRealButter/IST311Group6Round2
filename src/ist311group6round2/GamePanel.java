@@ -25,13 +25,13 @@ public class GamePanel extends MyJPanel implements ActionListener
         this.setBackground(Color.blue);
         
         player = new Player();
-        player.setBounds(player.x, player.y, player.size, player.size);
+        player.setBounds(player);
         
         enemy = new Enemy();
-        enemy.setBounds(enemy.getEnShape());
+        enemy.setBounds(enemy);
         
         treasure = new Treasure();
-        treasure.setBounds(treasure.treasureShape);
+        treasure.setBounds(treasure);
         
         gameLoop = new Timer(10, this);
         timeCounter = new Timer(1,this);
@@ -104,11 +104,11 @@ public class GamePanel extends MyJPanel implements ActionListener
         {
             enemy.enDY = enemy.enMoveSpeed;
         }
-        if(enemy.enShape.intersects(player.playerShape))
+        if(player.intersects(enemy))
         {
             gameOver = 1;
         }
-        if(player.getPlayerShape().intersects(treasure.getTreasureShape()))
+        if(player.intersects(treasure))
         {
             treasure.treasureMove();
             score++;
@@ -126,6 +126,7 @@ public class GamePanel extends MyJPanel implements ActionListener
             player.playerMove();
             gameLogic();
             enemy.enemyMove();
+            gameOver = 0;
             revalidate();
             repaint();
         }

@@ -98,7 +98,7 @@ public class ContainerPanel extends MyJPanel implements ActionListener,ChangeLis
             game.gameLoop.start();
             game.timeCounter.start();
         }
-        if(game.gameOver == 1);
+        if(game.enemy.intersects(game.player))
         {
             game.enemy.resetRectangle();
             this.swapPanel(game,gameOver);
