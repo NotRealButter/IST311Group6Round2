@@ -9,16 +9,14 @@ public class GamePanel extends MyJPanel implements ActionListener
     Player player;
     Enemy enemy;
     Treasure treasure;
-    OptionsPanel options;
     
-    
-    Timer gameLoop;
+    Timer gameLoop,timeCounter;
     
     JLabel scoreLabel;
     JLabel levelLabel;
     JLabel timerLabel;
     
-    int score = 0;
+    int score = 0,time = 0,timeIncrement = 0;
     GamePanel()
     {
         this.setLayout(null);
@@ -35,6 +33,7 @@ public class GamePanel extends MyJPanel implements ActionListener
         treasure.setBounds(treasure.treasureShape);
         
         gameLoop = new Timer(10, this);
+        timeCounter = new Timer(1,this);
         
         scoreLabel = new JLabel("score: " + score);
         scoreLabel.setOpaque(true);
@@ -48,7 +47,7 @@ public class GamePanel extends MyJPanel implements ActionListener
         levelLabel.setBackground(Color.white);
         add(levelLabel);
         
-        timerLabel = new JLabel("timer: ");
+        timerLabel = new JLabel("timer: " + time);
         timerLabel.setOpaque(true);
         timerLabel.setBounds(900, 20, 50, 50);
         timerLabel.setBackground(Color.white);
@@ -63,6 +62,7 @@ public class GamePanel extends MyJPanel implements ActionListener
         g2d.draw(enemy.getEnShape());
         g2d.draw(treasure.getTreasureShape());
 //        g2d.draw(player.getRectangle());
+        g.drawImage(treasure.treasure, treasure.x, treasure.y, this);
         switch (player.directionFacing)
         {
             case 1: g.drawImage(player.faceUp, player.getPlayerShape().x, player.getPlayerShape().y, this);
@@ -88,12 +88,12 @@ public class GamePanel extends MyJPanel implements ActionListener
         if (player.x < enemy.enX)
         {
             enemy.enDX = -enemy.enMoveSpeed;
-            enemy.enDirFac = 2;
+            enemy.enDirFac = 2;                            
         }
         if (player.x > enemy.enX)
         {
             enemy.enDX = enemy.enMoveSpeed;
-            enemy.enDirFac = 1;
+            enemy.enDirFac = 1;                            
         }
         if (player.y < enemy.enY)
         {
@@ -127,6 +127,15 @@ public class GamePanel extends MyJPanel implements ActionListener
             enemy.enemyMove();
             revalidate();
             repaint();
+        }
+        if(select == timeCounter)
+        {
+            timeIncrement++;
+            if (timeIncrement%1000 == 0)
+            {
+                time++;
+                timerLabel.setText("Time:" + time);
+            }
         }
     }
 }

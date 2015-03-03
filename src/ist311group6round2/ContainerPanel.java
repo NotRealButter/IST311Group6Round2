@@ -93,6 +93,7 @@ public class ContainerPanel extends MyJPanel implements ActionListener
             this.swapPanel(options,game);
             game.levelLabel.setText("Level: " + options.difficulty);
             game.gameLoop.start();
+            game.timeCounter.start();
         }
     }
     

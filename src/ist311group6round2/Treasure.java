@@ -6,6 +6,7 @@ import javax.swing.*;
 public class Treasure extends Rectangle
 {
     int x,y,size;
+    Image treasure = Toolkit.getDefaultToolkit().getImage("images/treasure.png");
     Rectangle treasureShape;
     
     Treasure()
@@ -18,8 +19,8 @@ public class Treasure extends Rectangle
     
     public void treasureMove()
     {
-        x = (int)(Math.random()*(1280+1));
-        y = (int)(Math.random()*(710+1));
+        x = (int)(Math.random()*(1180+1));
+        y = (int)(Math.random()*(610+1));
         treasureShape.setBounds(x,y,size,size);
     }
     
