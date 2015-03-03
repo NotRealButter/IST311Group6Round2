@@ -12,7 +12,7 @@ public class Player extends Rectangle
     int movespeed = 5;
     int directionFacing = 2;
     int dy,dx,x,y,size;
-    private Rectangle playerShape;
+    Rectangle playerShape;
     
     Player()
     {

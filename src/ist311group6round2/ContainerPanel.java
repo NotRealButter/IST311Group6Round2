@@ -98,11 +98,10 @@ public class ContainerPanel extends MyJPanel implements ActionListener,ChangeLis
             game.gameLoop.start();
             game.timeCounter.start();
         }
-        if(game.gameOver == true)
+        if(game.gameOver == 1);
         {
             game.enemy.resetRectangle();
             this.swapPanel(game,gameOver);
-            game.gameOver=false;                  
         }
 
     }

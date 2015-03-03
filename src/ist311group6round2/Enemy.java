@@ -8,7 +8,7 @@ public class Enemy extends Rectangle
     Image ghostLeft = Toolkit.getDefaultToolkit().getImage("images/ghostLeft.png");
     Image ghostRight = Toolkit.getDefaultToolkit().getImage("images/ghostRight.png");
     int enX,enY,enSize,enDX,enDY,enMoveSpeed,enDirFac;
-    private Rectangle enShape;
+    Rectangle enShape;
     
     Enemy()
     {

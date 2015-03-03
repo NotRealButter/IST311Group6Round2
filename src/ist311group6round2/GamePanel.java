@@ -16,7 +16,7 @@ public class GamePanel extends MyJPanel implements ActionListener
     JLabel levelLabel;
     JLabel timerLabel;
     
-    Boolean gameOver = false;    
+    int gameOver = 0;    
     int score = 0,time = 0,timeIncrement = 0;
     GamePanel()
     {
@@ -60,8 +60,8 @@ public class GamePanel extends MyJPanel implements ActionListener
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g; 
         g2d.setColor(Color.red);
-        g2d.draw(enemy.getEnShape());
-        g2d.draw(treasure.getTreasureShape());
+//        g2d.draw(enemy.getEnShape());
+//        g2d.draw(treasure.getTreasureShape());
 //        g2d.draw(player.getRectangle());
         g.drawImage(treasure.treasure, treasure.x, treasure.y, this);
         switch (player.directionFacing)
@@ -104,9 +104,9 @@ public class GamePanel extends MyJPanel implements ActionListener
         {
             enemy.enDY = enemy.enMoveSpeed;
         }
-        if(enemy.getEnShape().intersects(player.getPlayerShape()))
+        if(enemy.enShape.intersects(player.playerShape))
         {
-            gameOver=true;
+            gameOver = 1;
         }
         if(player.getPlayerShape().intersects(treasure.getTreasureShape()))
         {

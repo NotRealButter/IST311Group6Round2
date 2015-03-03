@@ -1,10 +1,7 @@
 package ist311group6round2;
 
-import java.awt.Image;
-import java.awt.Toolkit;
-import javax.swing.JButton;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
-import javax.swing.JLabel;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *
@@ -16,12 +13,20 @@ public class GameOverPanel extends MyJPanel
     JButton playagain= new JButton("Play again");
    JButton exit = new JButton("Exit Game");
    Image exitpacman = Toolkit.getDefaultToolkit().getImage("images/GameOver.png");
-    public GameOverPanel()
+        GameOverPanel()
     {
         add(loser);
         add(playagain);
         add(exit);
     }
+   public void paintComponent(Graphics g)
+   {
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D)g; 
+        g.drawImage(exitpacman, 0, 0, this);
+       
+   }
+
     
     
 }
