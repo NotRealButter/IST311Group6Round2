@@ -13,8 +13,15 @@ public class Treasure extends Rectangle
         x = 540;
         y = 370;
         size = 50;
-                this.setBounds(x,y,size,size);
-
+        this.setBounds(x,y,size,size);
+    }
+    
+    public void resetTreasure()
+    {
+        x = 540;
+        y = 370;
+        size = 50;
+        this.setBounds(x,y,size,size);
     }
     
     public void treasureMove()

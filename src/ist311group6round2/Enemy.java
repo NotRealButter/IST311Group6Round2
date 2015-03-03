@@ -19,6 +19,16 @@ public class Enemy extends Rectangle
         enDirFac = 2;
         
     }
+    
+    public void resetEnemy()
+    {
+        enX = 1100;
+        enY = 620;
+        enSize = 60;
+        enMoveSpeed = 1;
+        enDirFac = 2;
+        this.setBounds(enX,enY,enSize,enSize);
+    }
 
         public Rectangle getEnShape()
     {

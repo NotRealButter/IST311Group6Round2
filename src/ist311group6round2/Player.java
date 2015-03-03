@@ -23,6 +23,16 @@ public class Player extends Rectangle
         this.setBounds(x,y,size,size);
     }
     
+    public void resetPlayer()
+    {
+        dy = 0;
+        dx = 0;
+        x = 100;
+        y = 100;
+        size = 100;
+        this.setBounds(x,y,size,size);
+    }
+    
     public void playerMove()
     {
         x += dx;

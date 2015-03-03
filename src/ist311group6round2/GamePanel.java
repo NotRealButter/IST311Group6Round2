@@ -84,7 +84,17 @@ public class GamePanel extends MyJPanel implements ActionListener
         }
     }
         
-        public void restart
+        public void restartGame()
+        {
+            enemy.resetEnemy();
+            player.resetPlayer();
+            treasure.resetTreasure();
+            gameOver = 0;    
+            score = 0;
+            time = 0;
+            timeIncrement = 0;
+
+        }
     
     public void gameLogic()
     {

@@ -80,12 +80,13 @@ public class ContainerPanel extends MyJPanel implements ActionListener,ChangeLis
         }
         if (select == gameOverTimer)
         {
-            System.out.println("this");
+//            System.out.println("this");
             if(game.gameOver == 1)
             {
-                System.out.println("fuck");
+//                System.out.println("estasdfasf");
                 game.enemy.resetRectangle();
                 this.swapPanel(game,gameOver);
+                game.gameOver = 0;
             }
 
         }
@@ -110,6 +111,7 @@ public class ContainerPanel extends MyJPanel implements ActionListener,ChangeLis
         if (select == options.start)
         {
             this.swapPanel(options,game);
+            game.restartGame();
             game.levelLabel.setText("Level: " + options.difficulty);
             game.gameLoop.start();
             game.timeCounter.start();
@@ -117,10 +119,12 @@ public class ContainerPanel extends MyJPanel implements ActionListener,ChangeLis
         if (select == gameOver.exit)
         {
             this.swapPanel(gameOver, options);
+            game.restartGame();
         }
         if (select == gameOver.playagain)
         {
             this.swapPanel(gameOver, game);
+            game.restartGame();
         }
 
     }
