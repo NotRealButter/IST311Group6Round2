@@ -3,17 +3,19 @@ package ist311group6round2;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.event.*;
 
 /**
  *
  * @author Stephen
  */
-public class ContainerPanel extends MyJPanel implements ActionListener
+public class ContainerPanel extends MyJPanel implements ActionListener,ChangeListener
 {
 
     GamePanel game;
     OptionsPanel options;
     SplashPanel splashScreen;    
+    GameOverPanel gameOver;
     Timer splashTimer;
     int value = 0;
     WhichKey whichKey;
@@ -23,13 +25,14 @@ public class ContainerPanel extends MyJPanel implements ActionListener
         game = new GamePanel();
         options = new OptionsPanel();
         splashScreen = new SplashPanel();  
+        gameOver = new GameOverPanel();
         setFocusable(true);
 
         
         whichKey = new WhichKey();
         addKeyListener(whichKey);
         game.setBackground(Color.blue);
-        
+               
         options.easy.addActionListener(this);
         options.medium.addActionListener(this);
         options.hard.addActionListener(this);
@@ -95,6 +98,19 @@ public class ContainerPanel extends MyJPanel implements ActionListener
             game.gameLoop.start();
             game.timeCounter.start();
         }
+        if(game.gameOver == true)
+        {
+            game.enemy.resetRectangle();
+            this.swapPanel(game,gameOver);
+            game.gameOver=false;                  
+        }
+
+    }
+
+    @Override
+    public void stateChanged(ChangeEvent e)
+    {
+
     }
     
 public class WhichKey implements KeyListener

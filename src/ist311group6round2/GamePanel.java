@@ -16,6 +16,7 @@ public class GamePanel extends MyJPanel implements ActionListener
     JLabel levelLabel;
     JLabel timerLabel;
     
+    Boolean gameOver = false;    
     int score = 0,time = 0,timeIncrement = 0;
     GamePanel()
     {
@@ -105,7 +106,7 @@ public class GamePanel extends MyJPanel implements ActionListener
         }
         if(enemy.getEnShape().intersects(player.getPlayerShape()))
         {
-            enemy.resetRectangle();
+            gameOver=true;
         }
         if(player.getPlayerShape().intersects(treasure.getTreasureShape()))
         {
@@ -131,7 +132,7 @@ public class GamePanel extends MyJPanel implements ActionListener
         if(select == timeCounter)
         {
             timeIncrement++;
-            if (timeIncrement%1000 == 0)
+            if (timeIncrement%100 == 0)
             {
                 time++;
                 timerLabel.setText("Time:" + time);
