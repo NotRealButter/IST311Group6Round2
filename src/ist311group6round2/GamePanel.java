@@ -17,7 +17,7 @@ public class GamePanel extends MyJPanel implements ActionListener
     JLabel timerLabel;
     
     int gameOver = 0;    
-    int score = 0,time = 0,timeIncrement = 0;
+    int score = 0,time = 0,timeIncrement = 0,speedCheck = 0;
     GamePanel()
     {
         this.setLayout(null);
@@ -36,19 +36,19 @@ public class GamePanel extends MyJPanel implements ActionListener
         gameLoop = new Timer(10, this);
         timeCounter = new Timer(1,this);
         
-        scoreLabel = new JLabel("score: " + score);
+        scoreLabel = new JLabel("Score: " + score);
         scoreLabel.setOpaque(true);
         scoreLabel.setBounds(100, 20, 100, 50);
         scoreLabel.setBackground(Color.white);
         add(scoreLabel);
         
-        levelLabel = new JLabel("level: ");
+        levelLabel = new JLabel("Level: " + enemy.enMoveSpeed);
         levelLabel.setOpaque(true);
         levelLabel.setBounds(500, 20, 50, 50);
         levelLabel.setBackground(Color.white);
         add(levelLabel);
         
-        timerLabel = new JLabel("timer: " + time);
+        timerLabel = new JLabel("Timer: " + time);
         timerLabel.setOpaque(true);
         timerLabel.setBounds(900, 20, 50, 50);
         timerLabel.setBackground(Color.white);
@@ -89,6 +89,9 @@ public class GamePanel extends MyJPanel implements ActionListener
             enemy.resetEnemy();
             player.resetPlayer();
             treasure.resetTreasure();
+            scoreLabel.setText("Score: 0" );
+            timerLabel.setText("Time: 0");
+            levelLabel.setText("Level: " + enemy.enMoveSpeed);
             gameOver = 0;    
             score = 0;
             time = 0;
@@ -125,6 +128,12 @@ public class GamePanel extends MyJPanel implements ActionListener
             treasure.treasureMove();
             score++;
             scoreLabel.setText("score: " + score);
+            speedCheck = 1;
+        }
+        if(score%10 <= 0 && speedCheck == 1 )
+        {
+            enemy.enMoveSpeed += 1;
+            speedCheck = 0;
         }
         
     }
