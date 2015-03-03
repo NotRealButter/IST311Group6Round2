@@ -16,7 +16,7 @@ public class ContainerPanel extends MyJPanel implements ActionListener,ChangeLis
     OptionsPanel options;
     SplashPanel splashScreen;    
     GameOverPanel gameOver;
-    Timer splashTimer;
+    Timer splashTimer,gameOverTimer;
     int value = 0;
     WhichKey whichKey;
     
@@ -38,6 +38,9 @@ public class ContainerPanel extends MyJPanel implements ActionListener,ChangeLis
         options.hard.addActionListener(this);
         options.start.addActionListener(this);
         
+        gameOver.exit.addActionListener(this);
+        gameOver.playagain.addActionListener(this);
+        
         game.levelLabel.setText("level: " + options.difficulty);
 
 
@@ -46,6 +49,9 @@ public class ContainerPanel extends MyJPanel implements ActionListener,ChangeLis
 
         splashTimer = new Timer(1,this);
         splashTimer.start();
+        
+        gameOverTimer = new Timer (10, this);
+        gameOverTimer.start();
 
  
     }
@@ -70,8 +76,18 @@ public class ContainerPanel extends MyJPanel implements ActionListener,ChangeLis
             {
                 this.swapPanel(splashScreen,options);
                 splashTimer.stop();
+            }           
+        }
+        if (select == gameOverTimer)
+        {
+            System.out.println("this");
+            if(game.gameOver == 1)
+            {
+                System.out.println("fuck");
+                game.enemy.resetRectangle();
+                this.swapPanel(game,gameOver);
             }
-           
+
         }
         if (select == options.easy)
         {
@@ -97,11 +113,6 @@ public class ContainerPanel extends MyJPanel implements ActionListener,ChangeLis
             game.levelLabel.setText("Level: " + options.difficulty);
             game.gameLoop.start();
             game.timeCounter.start();
-        }
-        if(game.enemy.intersects(game.player))
-        {
-            game.enemy.resetRectangle();
-            this.swapPanel(game,gameOver);
         }
 
     }

@@ -126,7 +126,7 @@ public class GamePanel extends MyJPanel implements ActionListener
             player.playerMove();
             gameLogic();
             enemy.enemyMove();
-            gameOver = 0;
+
             revalidate();
             repaint();
         }
