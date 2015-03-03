@@ -83,6 +83,8 @@ public class GamePanel extends MyJPanel implements ActionListener
                         break;
         }
     }
+        
+        public void restart
     
     public void gameLogic()
     {

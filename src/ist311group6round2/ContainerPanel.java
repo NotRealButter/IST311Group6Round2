@@ -114,6 +114,14 @@ public class ContainerPanel extends MyJPanel implements ActionListener,ChangeLis
             game.gameLoop.start();
             game.timeCounter.start();
         }
+        if (select == gameOver.exit)
+        {
+            this.swapPanel(gameOver, options);
+        }
+        if (select == gameOver.playagain)
+        {
+            this.swapPanel(gameOver, game);
+        }
 
     }
 
